@@ -1,5 +1,6 @@
 {
   "name": "underdom",
+  "version": "0.0.2",
   "description": "Adds some simple chaining to the vanilla DOM API",
   "keywords": [
     "chaining",

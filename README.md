@@ -36,7 +36,7 @@ for (var i=0; i<10; i++) {
     subel.style.display = 'inline-block';
     subel.style.padding = '10px';
     subel.style.width = '33%';
-    subel.style.textContent = 'Box ' + (i+1);
+    subel.textContent = 'Box ' + (i+1);
     el1.appendChild(subel);
 }
 [].slice.call(el1.getElementsByTagName('div')).forEach(function(subel){
