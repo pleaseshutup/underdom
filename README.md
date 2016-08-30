@@ -2,7 +2,7 @@
 Underdom is a minimalist helper library to make writing vanilla javascript DOM manipulation just a bit easier with some chaining while still making it completely compatible with the vanilla DOM API.
 
 ### Why ?
-Sprinkle in the convenience of chaining common DOM methods in 361 bytes
+Sprinkle in the convenience of chaining common DOM methods in 855 bytes
 
 ### Before (one element)
 ``` javascript
