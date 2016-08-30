@@ -1,0 +1,32 @@
+{
+  "name": "underdom",
+  "description": "Adds some simple chaining to the vanilla DOM API",
+  "keywords": [
+    "chaining",
+    "dom",
+    "minimal",
+    "jquery",
+    "sizzle"
+  ],
+  "homepage": "https://github.com/pleaseshutup/underdom",
+  "license": "MIT",
+  "main": "underdom.js",
+  "author": {
+    "name": "Dan Williams",
+    "email": "pleaseshutup@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pleaseshutup/underdom"
+  },
+  "bugs": {
+    "url": "https://github.com/pleaseshutup/underdom/issues",
+    "email": "pleaseshutup@gmail.com"
+  },
+  "devDependencies": {
+    "uglifyjs": "latest"
+  },
+  "scripts": {
+    "build": "uglifyjs underdom.js -c -m -o dist/underdom.min.js; gzip < dist/underdom.min.js > dist/underdom.min.js.gz; stat --printf=\"%s\" dist/underdom.min.js.gz; echo \" bytes\""
+  }
+}

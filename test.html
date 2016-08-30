@@ -1,0 +1,28 @@
+<html>
+	<title>Underdom - vanilla dom sprinkled with chains</title>
+	<script src="underdom.js"></script>
+<body>
+
+<i>item 1</i>
+<i>item 2</i>
+<i>item 3</i>
+
+<span class="items">by class item 1</span>
+<span class="items">by class item 2</span>
+<span class="items">by class item 3</span>
+
+<script>
+var dom = document.createElement.bind(document);
+
+dom('div').appendTo(document.body).css({'background-color': 'red', color:'blue'}).text('some text');
+dom('div').attr({'data-attr1': 1}).html('sup html').appendTo(document.body);
+
+
+document.querySelectorAll('i').css({display: 'inline-block', padding: '10px'}).attr({'data-set': 'yolo'});
+
+document.getElementsByClassName('items').css({display: 'inline-block', padding: '10px'}).attr({'data-set': 'yolo2'});
+
+</script>
+
+</body>
+</html>
