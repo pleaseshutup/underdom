@@ -58,7 +58,7 @@ el1.getElementsByTagName('div').css({width: '50%'})
 ```
 
 # Where it shines!
-###### underdom really shines when you are creating a lot of elements and trying to do things with them -- paste this in your console
+###### underdom really shines when you are creating a lot of elements and trying to do things with them -- [check this out!][0]
 ``` javascript
 document.body.html('')
 for(i =0; i< 10; i++){
@@ -102,7 +102,7 @@ Node.prototype.appendTo=function(t){return t.appendChild(this),this},Node.protot
 
 ###### Option 2. RawGit
 ``` html
-<script src="https://cdn.rawgit.com/pleaseshutup/underdom/master/underdom.min.js"></script>
+<script src="https://cdn.rawgit.com/pleaseshutup/underdom/master/dist/underdom.min.js"></script>
 ```
 
 ###### Option 3: ???
@@ -111,3 +111,5 @@ I don't ever use front-end bundlers so I need to be educated
 
 ### License
 MIT
+
+[0]: https://cdn.rawgit.com/pleaseshutup/underdom/master/test.html
