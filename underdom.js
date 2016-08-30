@@ -1,10 +1,9 @@
-
-Node.prototype.appendTo = function(target){
-	target.appendChild(this);
+Node.prototype.css = function(css){
+	for(var k in css){ this.style.setProperty(k, css[k]); }
 	return this;
 }
-Node.prototype.append = function(el){
-	this.appendChild(el);
+Node.prototype.attr = function(attr){
+	for(var k in attr){ !attr[k] && attr[k] !== 0 ? this.removeAttribute(k) : typeof attr[k] === 'boolean' ? this[k] = attr[k] : this.setAttribute(k, attr[k]); }
 	return this;
 }
 Node.prototype.text = function(text){
@@ -15,12 +14,11 @@ Node.prototype.html = function(html){
 	this.innerHTML = html || '';
 	return this;
 }
-Node.prototype.css = function(css){
-	for(var k in css){ this.style.setProperty(k, css[k]); }
-	return this;
+Node.prototype.appendTo = function(target){
+	return target.appendChild(this);
 }
-Node.prototype.attr = function(attr){
-	for(var k in attr){ !attr[k] && attr[k] !== 0 ? this.removeAttribute(k) : typeof attr[k] === 'boolean' ? this[k] = attr[k] : this.setAttribute(k, attr[k]); }
+Node.prototype.append = function(el){
+	this.appendChild(el);
 	return this;
 }
 Node.prototype.on = function(ev, fn){
@@ -28,7 +26,7 @@ Node.prototype.on = function(ev, fn){
 	return this;
 }
 NodeList.prototype.__proto__ = Array.prototype;
-var underdom_methods = ['css', 'attr', 'appendTo', 'append', 'text', 'html', ];
+var underdom_methods = ['css', 'attr', 'text', 'html', 'appendTo', 'append', 'on'];
 underdom_methods.forEach(function(method){
 	NodeList.prototype[method] = HTMLCollection.prototype[method] = function(arg1, arg2){
 		for (var i = this.length - 1; i >= 0; i--) {
