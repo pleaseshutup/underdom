@@ -6,6 +6,7 @@
     "dom",
     "minimal",
     "jquery",
+    "vanilla",
     "sizzle"
   ],
   "homepage": "https://github.com/pleaseshutup/underdom",
