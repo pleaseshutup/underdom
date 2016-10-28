@@ -20,12 +20,12 @@ var el = document.createElement('div');
 #### After
 ``` javascript
 var el = document.createElement('div')
-    .css({display: 'inline-block', padding: '10px'})
-    .attr({class: 'blocky', 'data-showing': '1'})
-    .on('click', function(e) {
+    ._css({display: 'inline-block', padding: '10px'})
+    ._attr({class: 'blocky', 'data-showing': '1'})
+    ._on('click', function(e) {
         console.log('clicked');
     })
-    .appendTo(document.body);
+    ._appendTo(document.body);
 ```
 
 #### Before (multiple elements)
@@ -50,32 +50,32 @@ var el1 = document.createElement('div');
 for (var i=0; i<10; i++) {
     // no variable created
     document.createElement('div')
-    .css({display: 'inline-block', padding: '10px', width: '33%'})
-    .text('Box '+(i+1))
-    .appendTo(el1);
+    ._css({display: 'inline-block', padding: '10px', width: '33%'})
+    ._text('Box '+(i+1))
+    ._appendTo(el1);
 }
-el1.getElementsByTagName('div').css({width: '50%'})
+el1.getElementsByTagName('div')._css({width: '50%'})
 ```
 
 # Where it shines!
 ###### underdom really shines when you are creating a lot of elements and trying to do things with them -- [check this out!][0]
 ``` javascript
-document.body.html('')
+document.body._html('')
 for(i =0; i< 10; i++){
-    document.createElement('div').css({padding: '4px 10px'})
-    .append(
+    document.createElement('div')._css({padding: '4px 10px'})
+    ._append(
         document.createElement('label')
-        .append(
-            document.createElement('input').attr({type: 'checkbox'}).css({display: 'inline-block', 'vertical-align':'top'}).on('change', function(e){
+        ._append(
+            document.createElement('input')._attr({type: 'checkbox'})._css({display: 'inline-block', 'vertical-align':'top'})._on('change', function(e){
                 console.log('Option', (i+1), 'changed')
-                e.target.parentNode.parentNode.css({'background-color': e.target.checked ? 'red' : 'blue'})
+                e.target.parentNode.parentNode._css({'background-color': e.target.checked ? 'red' : 'blue'})
             })
         )
-        .append(
-            document.createElement('span').text('Option '+(i+1)).css({display: 'inline-block', 'vertical-align':'top'})
+        ._append(
+            document.createElement('span')._text('Option '+(i+1))._css({display: 'inline-block', 'vertical-align':'top'})
         )
     )
-    .appendTo(document.body)
+    ._appendTo(document.body)
 }
 ```
 
@@ -85,13 +85,13 @@ Each of these methods returns the DOM node so they can be chained
 
 | name | arguments | description | example |
 | --- | --- | --- | --- |
-| css | _css_ | sets the style properties of the node(s) using an object with each style property as the key, similar to jquery but only supports objects | `document.querySelectorAll('span').css({background: 'red', 'font-size': '12px'})`
-| attr | _attr_ | sets the attribute properties of the node(s) using an object with each attribute name as the key, similar to jquery but only supports objects | `document.getElementsByTagName('input').css({checked: true, 'data-color': 'blue'})`
-| text | _text_ | sets the .textContent of the node(s) | `document.getElementsByClassName('items').text('Hello')`
-| html | _html_ | sets the .innerHTML of the node(s) | `document.querySelectorAll('div[data-color="blue"]').html('<span>hi</span>')`
-| appendTo | _target_ | appends the element to the _target_ DOM node(s) | `document.createElement('div').html('<span>hi</span>').appendTo(document.body)`
-| append | _child_ | appends _child_ to the node(s) | `document.body.append(document.createElement('div').text('hello'))`
-| on | _ev_, _fn_ | does document.addEventLisenter(_ev_, _fn_) to the node(s) | `document.getElementsByTagName('input').on('change', function(e){ console.log('checked', e.target.checked); })`
+| css | _css_ | sets the style properties of the node(s) using an object with each style property as the key, similar to jquery but only supports objects | `document.querySelectorAll('span')._css({background: 'red', 'font-size': '12px'})`
+| attr | _attr_ | sets the attribute properties of the node(s) using an object with each attribute name as the key, similar to jquery but only supports objects | `document.getElementsByTagName('input')._css({checked: true, 'data-color': 'blue'})`
+| text | _text_ | sets the .textContent of the node(s) | `document.getElementsByClassName('items')._text('Hello')`
+| html | _html_ | sets the .innerHTML of the node(s) | `document.querySelectorAll('div[data-color="blue"]')._html('<span>hi</span>')`
+| appendTo | _target_ | appends the element to the _target_ DOM node(s) | `document.createElement('div')._html('<span>hi</span>')._appendTo(document.body)`
+| append | _child_ | appends _child_ to the node(s) | `document.body._append(document.createElement('div')._text('hello'))`
+| on | _ev_, _fn_ | does document.addEventLisenter(_ev_, _fn_) to the node(s) | `document.getElementsByTagName('input')._on('change', function(e){ console.log('checked', e.target.checked); })`
 
 
 ### How to use this?
